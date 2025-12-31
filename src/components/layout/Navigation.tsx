@@ -80,18 +80,20 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
               </Link>
             ))}
             <div className="ml-4 pl-4 border-l border-border">
-              <Button
-                variant="gradient"
-                size="sm"
-                onClick={(e) => {
-                  if (isHomePage && onScrollToSection) {
-                    e.preventDefault()
-                    onScrollToSection('contact')
-                  }
-                }}
-              >
-                Get in Touch
-              </Button>
+              <Link to="/#contact">
+                <Button
+                  variant="gradient"
+                  size="sm"
+                  onClick={(e) => {
+                    if (isHomePage && onScrollToSection) {
+                      e.preventDefault()
+                      onScrollToSection('contact')
+                    }
+                  }}
+                >
+                  Get in Touch
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -141,18 +143,20 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
               </Link>
             ))}
             <div className="pt-2 px-4">
-              <Button
-                variant="gradient"
-                className="w-full"
-                onClick={() => {
-                  if (isHomePage && onScrollToSection) {
-                    onScrollToSection('contact')
-                  }
-                  setIsMobileMenuOpen(false)
-                }}
-              >
-                Get in Touch
-              </Button>
+              <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button
+                  variant="gradient"
+                  className="w-full"
+                  onClick={(e) => {
+                    if (isHomePage && onScrollToSection) {
+                      e.preventDefault()
+                      onScrollToSection('contact')
+                    }
+                  }}
+                >
+                  Get in Touch
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
