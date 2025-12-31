@@ -9,7 +9,7 @@ interface NavigationProps {
 const navLinks = [
   { label: 'Home', href: '/', sectionId: 'hero' as SectionId },
   { label: 'Projects', href: '/#projects', sectionId: 'projects' as SectionId },
-  { label: 'About', href: '/#about', sectionId: 'about' as SectionId },
+  { label: 'About', href: '/about', sectionId: undefined },
   { label: 'Contact', href: '/#contact', sectionId: 'contact' as SectionId },
 ]
 
