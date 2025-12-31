@@ -29,7 +29,8 @@
       "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" diff --stat)",
       "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" add -A)",
       "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nAdd UI components library and enhance portfolio styling\n\n- Add shadcn/ui components \\(Button, Card, Badge\\) with utilities\n- Enhance all home components with improved animations and styling\n- Update Navigation with better responsive design\n- Refine AboutPage and ProjectsPage layouts\n- Update Tailwind config with extended theme options\n- Add vite config files\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nRemove duplicate email button from Contact section\n\nThe Email card in social links already provides mailto functionality.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nRemove duplicate email button from Contact section\n\nThe Email card in social links already provides mailto functionality.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nFix navigation Get in Touch button for cross-page routing\n\n- Wrap Get in Touch button with Link component for proper routing\n- Add hash navigation support in useScrollTo hook\n- Handle section scrolling when arriving from other pages\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
