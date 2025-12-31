@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import type { SectionId } from '../../types/navigation'
 
 interface NavigationProps {
@@ -15,8 +19,17 @@ const navLinks = [
 
 export default function Navigation({ onScrollToSection }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (e: React.MouseEvent, sectionId?: SectionId) => {
     if (isHomePage && sectionId && onScrollToSection) {
@@ -27,71 +40,122 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "bg-white/80 backdrop-blur-lg border-b border-border shadow-sm"
+          : "bg-transparent"
+      )}
+    >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-primary">Prajeen</span>
-            <span className="hidden sm:inline-flex items-center px-2 py-1 text-xs font-medium bg-success-50 text-success-600 rounded-full">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                Prajeen
+              </span>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transition-all duration-300 group-hover:w-full" />
+            </div>
+            <Badge variant="success" className="hidden sm:inline-flex animate-pulse">
               Open to Work
-            </span>
+            </Badge>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.href}
                 onClick={(e) => handleNavClick(e, link.sectionId)}
-                className="text-text-secondary hover:text-primary font-medium transition-colors duration-default"
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                  "text-muted-foreground hover:text-foreground hover:bg-accent",
+                  location.pathname === link.href && "text-foreground bg-accent"
+                )}
               >
                 {link.label}
               </Link>
             ))}
+            <div className="ml-4 pl-4 border-l border-border">
+              <Button
+                variant="gradient"
+                size="sm"
+                onClick={(e) => {
+                  if (isHomePage && onScrollToSection) {
+                    e.preventDefault()
+                    onScrollToSection('contact')
+                  }
+                }}
+              >
+                Get in Touch
+              </Button>
+            </div>
           </div>
 
-          {/* Mobile Menu Button - 44px minimum touch target */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
-            className="md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-text-secondary hover:text-primary hover:bg-gray-100 rounded-lg transition-colors"
+            className={cn(
+              "md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center",
+              "text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200"
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="w-5 h-5" />
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Menu className="w-5 h-5" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  onClick={(e) => {
-                    handleNavClick(e, link.sectionId)
-                    setIsMobileMenuOpen(false)
-                  }}
-                  className="text-text-secondary hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-default py-3 px-2 rounded-lg min-h-[44px] flex items-center"
-                >
-                  {link.label}
-                </Link>
-              ))}
+        <div
+          className={cn(
+            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          )}
+        >
+          <div className="py-4 space-y-1 border-t border-border">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={(e) => {
+                  handleNavClick(e, link.sectionId)
+                  setIsMobileMenuOpen(false)
+                }}
+                className={cn(
+                  "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
+                  "text-muted-foreground hover:text-foreground hover:bg-accent",
+                  "min-h-[44px]",
+                  location.pathname === link.href && "text-foreground bg-accent"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-2 px-4">
+              <Button
+                variant="gradient"
+                className="w-full"
+                onClick={() => {
+                  if (isHomePage && onScrollToSection) {
+                    onScrollToSection('contact')
+                  }
+                  setIsMobileMenuOpen(false)
+                }}
+              >
+                Get in Touch
+              </Button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   )

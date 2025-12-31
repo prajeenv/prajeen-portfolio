@@ -1,16 +1,20 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { Search, FolderOpen, Briefcase, Rocket, ArrowRight } from 'lucide-react'
 import Navigation from '../components/layout/Navigation'
 import ProjectCard from '../components/home/ProjectCard'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 import { projects } from '../data/projects'
 
 type FilterType = 'all' | 'professional' | 'side-projects'
 type SortType = 'recent' | 'oldest'
 
-const filters: { value: FilterType; label: string }[] = [
-  { value: 'all', label: 'All Projects' },
-  { value: 'professional', label: 'Professional' },
-  { value: 'side-projects', label: 'Side Projects' },
+const filters: { value: FilterType; label: string; icon: typeof FolderOpen }[] = [
+  { value: 'all', label: 'All Projects', icon: FolderOpen },
+  { value: 'professional', label: 'Professional', icon: Briefcase },
+  { value: 'side-projects', label: 'Side Projects', icon: Rocket },
 ]
 
 const sortOptions: { value: SortType; label: string }[] = [
@@ -60,32 +64,46 @@ export default function ProjectsPage() {
       <Navigation />
 
       <main className="pt-20">
-        {/* Header */}
-        <section className="bg-white section-padding pb-8">
-          <div className="container-custom">
+        {/* Hero Section */}
+        <section className="relative py-16 sm:py-20 overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0 gradient-mesh" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" />
+
+          <div className="container-custom relative z-10">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm mb-8">
-              <Link to="/" className="text-text-secondary hover:text-primary transition-colors">
+            <nav className="flex items-center gap-2 text-sm mb-6">
+              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
                 Home
               </Link>
-              <span className="text-text-secondary">/</span>
-              <span className="text-text-primary font-medium">Projects</span>
+              <span className="text-muted-foreground">/</span>
+              <span className="text-foreground font-medium">Projects</span>
             </nav>
 
             <div className="max-w-3xl">
-              <h1 className="text-2xl sm:text-3xl lg:text-h1 text-text-primary mb-3 sm:mb-4">
-                Projects & Case Studies
+              <Badge variant="outline" className="mb-4 border-primary/20 bg-primary/5">
+                <FolderOpen className="w-3.5 h-3.5 mr-1.5 text-primary" />
+                Portfolio
+              </Badge>
+              <h1 className={cn(
+                "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight",
+                "text-foreground mb-4"
+              )}>
+                Projects & <span className="text-gradient">Case Studies</span>
               </h1>
-              <p className="text-base sm:text-body-lg text-text-secondary">
-                A collection of products I've built across my career — from 0-to-1 AI products
-                to enterprise-scale migrations, professional work to passion projects.
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                A collection of products I've built across my career — from{' '}
+                <span className="text-foreground font-medium">0-to-1 AI products</span> to{' '}
+                <span className="text-foreground font-medium">enterprise-scale migrations</span>,
+                professional work to passion projects.
               </p>
             </div>
           </div>
         </section>
 
         {/* Filters & Search */}
-        <section className="bg-slate-50 border-y border-gray-200 sticky top-20 z-40">
+        <section className="bg-muted/50 border-y border-border sticky top-20 z-40 backdrop-blur-sm">
           <div className="container-custom py-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Filter Tabs */}
@@ -94,19 +112,21 @@ export default function ProjectsPage() {
                   <button
                     key={filter.value}
                     onClick={() => setActiveFilter(filter.value)}
-                    className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors min-h-[44px] ${
+                    className={cn(
+                      "inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all min-h-[44px]",
                       activeFilter === filter.value
-                        ? 'bg-primary text-white'
-                        : 'bg-white text-text-secondary hover:bg-gray-100 border border-gray-200'
-                    }`}
+                        ? "bg-primary text-primary-foreground shadow-md"
+                        : "bg-background text-muted-foreground hover:bg-accent hover:text-foreground border border-border"
+                    )}
                   >
+                    <filter.icon className="w-4 h-4" />
                     {filter.label}
                   </button>
                 ))}
               </div>
 
               {/* Search & Sort */}
-              <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto">
+              <div className="flex items-center gap-3 w-full md:w-auto">
                 {/* Search */}
                 <div className="relative flex-1 md:flex-none">
                   <input
@@ -114,28 +134,26 @@ export default function ProjectsPage() {
                     placeholder="Search projects..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full md:w-64 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[44px]"
+                    className={cn(
+                      "w-full md:w-64 pl-10 pr-4 py-2 text-sm rounded-lg",
+                      "bg-background border border-border",
+                      "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
+                      "min-h-[44px] transition-all"
+                    )}
                   />
-                  <svg
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 </div>
 
                 {/* Sort */}
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortType)}
-                  className="px-3 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[44px]"
+                  className={cn(
+                    "px-4 py-2 text-sm rounded-lg",
+                    "bg-background border border-border",
+                    "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
+                    "min-h-[44px]"
+                  )}
                 >
                   {sortOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -149,54 +167,61 @@ export default function ProjectsPage() {
         </section>
 
         {/* Projects Grid */}
-        <section className="bg-white section-padding">
+        <section className="section-padding bg-background">
           <div className="container-custom">
             {/* Results count */}
-            <p className="text-sm text-text-secondary mb-6">
+            <p className="text-sm text-muted-foreground mb-6">
               Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
               {searchQuery && ` for "${searchQuery}"`}
             </p>
 
             {filteredProjects.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 sm:py-16">
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🔍</div>
-                <h3 className="text-lg sm:text-h3 text-text-primary mb-2">No projects found</h3>
-                <p className="text-sm sm:text-base text-text-secondary mb-4 sm:mb-6">
+              <div className="text-center py-16">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+                  <Search className="w-8 h-8 text-muted-foreground" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">No projects found</h3>
+                <p className="text-muted-foreground mb-6">
                   Try adjusting your filters or search query.
                 </p>
-                <button
+                <Button
+                  variant="outline"
                   onClick={() => {
                     setActiveFilter('all')
                     setSearchQuery('')
                   }}
-                  className="btn-secondary"
                 >
                   Clear Filters
-                </button>
+                </Button>
               </div>
             )}
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-dark section-padding">
-          <div className="container-custom text-center">
-            <h2 className="text-xl sm:text-2xl lg:text-h2 text-white mb-4">Want to know more?</h2>
-            <p className="text-base sm:text-body-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto">
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+
+          <div className="container-custom relative z-10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Want to know more?
+            </h2>
+            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               Each project taught me something valuable. I'd love to share the stories behind these products.
             </p>
-            <Link
-              to="/#contact"
-              className="btn-primary bg-white text-primary hover:bg-gray-100"
-            >
-              Let's Talk
-            </Link>
+            <Button variant="gradient" size="lg" asChild className="group">
+              <Link to="/#contact">
+                Let's Talk
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </section>
       </main>

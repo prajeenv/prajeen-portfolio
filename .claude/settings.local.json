@@ -14,7 +14,20 @@
       "Bash(git add:*)",
       "Bash(git remote add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(cd:*)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" status)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" diff)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" log --oneline -5)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" add src/components/home/Contact.tsx)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nUpdate GitHub link in Contact section\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" push origin master)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" commit -m \"$\\(cat <<''EOF''\nUpdate email address in Contact section\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" tag -a v1.0.0 -m \"Initial complete version of portfolio website\")",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" push origin v1.0.0)",
+      "Bash(npm run build:*)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" diff --stat)",
+      "Bash(git -C \"c:\\\\Wordspace\\\\Prajeen_portfolio\" add -A)"
     ]
   }
 }
