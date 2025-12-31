@@ -1,5 +1,4 @@
 import { LinkedinIcon, Mail, GithubIcon, ArrowUpRight, Sparkles } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import AnimatedSection from '../common/AnimatedSection'
 import { cn } from '@/lib/utils'
 
@@ -102,22 +101,6 @@ export default function Contact() {
                   </div>
                 </a>
               ))}
-            </div>
-          </AnimatedSection>
-
-          {/* Direct email CTA */}
-          <AnimatedSection delay={400}>
-            <div className="mt-12">
-              <Button
-                variant="gradient"
-                size="lg"
-                className="group"
-                onClick={() => window.location.href = 'mailto:prajeen.v@gmail.com'}
-              >
-                <Mail className="w-5 h-5 mr-2" />
-                Send me an email
-                <ArrowUpRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Button>
             </div>
           </AnimatedSection>
 
