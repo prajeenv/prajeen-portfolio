@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Homepage - Updated Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .wireframe {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #333;
+        }
+        
+        .section {
+            padding: 60px 40px;
+            border-bottom: 2px dashed #ccc;
+            position: relative;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: white;
+            padding: 4px 12px;
+            font-size: 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 2px solid #333;
+            background: #fafafa;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            background: #e8f5e9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid #4caf50;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .sub {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 60px 40px;
+        }
+        
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            background: #fafafa;
+            position: relative;
+        }
+        
+        .project-card.hero-project {
+            border: 3px solid #2563eb;
+            background: #eff6ff;
+        }
+        
+        .project-card.hero-project::after {
+            content: "⭐ HERO PROJECT";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #2563eb;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .project-card.side-project::after {
+            content: "🌟 SIDE PROJECT";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #f59e0b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .project-card .type {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .project-card .description {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        /* Metrics Bar */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 60px 40px;
+            background: #f8fafc;
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .metric-detail {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        /* About Section - Enhanced */
+        .about {
+            padding: 80px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+        
+        .about .subtitle {
+            font-size: 20px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .about-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .highlight-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .highlight-card h4 {
+            font-size: 16px;
+            color: #2563eb;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .highlight-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Skills & Capabilities Section */
+        .capabilities {
+            padding: 80px 40px;
+            background: #fafafa;
+        }
+        
+        .capabilities h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+        
+        .capabilities .subtitle {
+            font-size: 20px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .capability-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .capability-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+        }
+        
+        .capability-card h3 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .capability-icon {
+            font-size: 24px;
+        }
+        
+        .capability-card ul {
+            list-style: none;
+        }
+        
+        .capability-card li {
+            font-size: 15px;
+            color: #666;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .capability-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+        }
+        
+        /* Product Philosophy Section */
+        .philosophy {
+            padding: 80px 40px;
+            background: white;
+        }
+        
+        .philosophy h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+        
+        .philosophy .subtitle {
+            font-size: 20px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-card {
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .philosophy-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .philosophy-card h3 {
+            font-size: 22px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .philosophy-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .philosophy-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .philosophy-card li {
+            font-size: 15px;
+            color: #666;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .philosophy-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 40px;
+            text-align: center;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .contact-link {
+            padding: 12px 24px;
+            background: white;
+            color: #1a1a1a;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe">
+        <!-- Navigation -->
+        <div class="nav">
+            <div class="logo">PRAJEEN MV</div>
+            <div class="nav-links">
+                <span>Home</span>
+                <span>Projects</span>
+                <span>About</span>
+                <span>Contact</span>
+            </div>
+            <div class="status-badge">🟢 Currently at DogQ | 📍 Berlin</div>
+        </div>
+        
+        <!-- SECTION 1: HERO -->
+        <div class="section hero">
+            <div class="section-label">SECTION 1: HERO</div>
+            <h1>I build AI-powered products that turn complex problems into measurable growth</h1>
+            <p class="sub">From 0-to-1 launches to enterprise scale | €200M migrations • +25% activation • #1 Product Hunt | 15+ years in B2B SaaS</p>
+            <div class="hero-cta">
+                <button class="btn btn-primary">View Featured Work</button>
+                <button class="btn btn-secondary">Contact Me</button>
+            </div>
+            <p style="font-size: 12px; color: #999; margin-top: 10px;">
+                "View Featured Work" → Scrolls to projects | "Contact Me" → Scrolls to contact section
+            </p>
+        </div>
+        
+        <!-- SECTION 2: FEATURED PROJECTS -->
+        <div class="section">
+            <div class="section-label">SECTION 2: FEATURED PROJECTS</div>
+            <div class="projects-grid">
+                <div class="project-card hero-project">
+                    <div class="project-image">PANION</div>
+                    <h3>PANION at ABB E-mobility</h3>
+                    <p class="type">Principal PM | 0-to-1 AI B2B SaaS</p>
+                    <p class="description">Built two AI-powered products from scratch. Secured first paying customer. 50% charging improvement, 30% fewer complaints.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">SAP</div>
+                    <h3>SAP Cloud Migration</h3>
+                    <p class="type">Lead PM | Enterprise Scale</p>
+                    <p class="description">Led €200M customer base migration to cloud. 60% efficiency gain via AI/ML pipeline. 12,000+ customers.</p>
+                </div>
+                
+                <div class="project-card side-project">
+                    <div class="project-image">VOIZE</div>
+                    <h3>Voize Nursing App</h3>
+                    <p class="type">Side Project | Voice AI + Healthcare</p>
+                    <p class="description">Voice-to-text nursing documentation. Full-stack React app with AI integration. Live demo available.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">DogQ</div>
+                    <h3>DogQ AI Testing</h3>
+                    <p class="type">Product & AI Collaboration | Current</p>
+                    <p class="description">#1 Product Hunt launch. +25% activation, +30% onboarding completion. 400+ signups week 1.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: METRICS BAR -->
+        <div class="section">
+            <div class="section-label">SECTION 3: IMPACT METRICS</div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">0-to-1 Products</div>
+                    <div class="metric-detail">(PANION, DogQ)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">€200M</div>
+                    <div class="metric-label">Enterprise Scale</div>
+                    <div class="metric-detail">(SAP Migration)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">AI Products</div>
+                    <div class="metric-detail">(All projects)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">+25%</div>
+                    <div class="metric-label">Avg Growth</div>
+                    <div class="metric-detail">(Activation gains)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 4: ABOUT ME (ENHANCED) -->
+        <div class="section about">
+            <div class="section-label">SECTION 4: ABOUT ME</div>
+            <h2>From Developer to Product Leader</h2>
+            <p class="subtitle">15+ years bridging technical teams and business outcomes</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>I'm a product leader with a technical foundation.</strong> Starting as a software developer, I've spent 15+ years building AI-powered solutions—from enterprise platforms serving 12,000+ customers to startup MVPs finding product-market fit.</p>
+                    
+                    <p>My background in software development gives me the technical credibility to collaborate deeply with engineering teams, while my track record at companies like SAP and ABB demonstrates my ability to drive strategic initiatives and deliver measurable business impact.</p>
+                    
+                    <p>Based in Berlin, I'm passionate about systems thinking, continuous learning, and building products that solve real problems for real users.</p>
+                </div>
+                
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>🎯 Unique Value</h4>
+                        <p>Technical foundation (former developer) + AI/ML expertise + 0-to-1 product launches</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <h4>🏢 Domain Experience</h4>
+                        <p>Enterprise SaaS (SAP), B2B AI products (ABB), Healthcare tech (Voize)</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <h4>📈 Career Trajectory</h4>
+                        <p>From software developer to leading product teams building AI solutions used by thousands</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <h4>📍 Based in Berlin</h4>
+                        <p>Open to product leadership opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 5: SKILLS & CAPABILITIES -->
+        <div class="section capabilities">
+            <div class="section-label">SECTION 5: SKILLS & CAPABILITIES</div>
+            <h2>Where I Excel</h2>
+            <p class="subtitle">Core competencies honed across enterprise and startup environments</p>
+            
+            <div class="capabilities-grid">
+                <!-- Product Strategy -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">🎯</span> Product Strategy & Execution</h3>
+                    <ul>
+                        <li>0-to-1 product development</li>
+                        <li>Product roadmap planning & prioritization</li>
+                        <li>Agile/Scrum leadership</li>
+                        <li>Stakeholder management (C-suite to engineering)</li>
+                    </ul>
+                </div>
+                
+                <!-- AI/ML Products -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">🤖</span> AI/ML Products</h3>
+                    <ul>
+                        <li>AI roadmap creation</li>
+                        <li>Collaboration with data scientists/ML engineers</li>
+                        <li>Data pipeline architecture</li>
+                        <li>Model evaluation & metrics</li>
+                    </ul>
+                </div>
+                
+                <!-- Technical Leadership -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">⚙️</span> Technical Leadership</h3>
+                    <ul>
+                        <li>Former software developer (Java, SQL)</li>
+                        <li>Architecture & system design</li>
+                        <li>Technical specification writing</li>
+                        <li>API integration strategy</li>
+                    </ul>
+                </div>
+                
+                <!-- User Research -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">👥</span> User Research & Design</h3>
+                    <ul>
+                        <li>User persona development</li>
+                        <li>Journey mapping</li>
+                        <li>A/B testing & experimentation</li>
+                        <li>Customer interviews & validation</li>
+                    </ul>
+                </div>
+                
+                <!-- Data & Metrics -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">📊</span> Data & Metrics</h3>
+                    <ul>
+                        <li>KPI definition and monitoring</li>
+                        <li>Analytics-driven decision making</li>
+                        <li>Success metrics tracking</li>
+                        <li>Business impact measurement</li>
+                    </ul>
+                </div>
+                
+                <!-- Cross-Functional Collaboration -->
+                <div class="capability-card">
+                    <h3><span class="capability-icon">🤝</span> Cross-Functional Leadership</h3>
+                    <ul>
+                        <li>Bridge engineers, designers, business</li>
+                        <li>Team building & mentorship</li>
+                        <li>Conflict resolution</li>
+                        <li>Culture of deep collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 6: PRODUCT PHILOSOPHY -->
+        <div class="section philosophy">
+            <div class="section-label">SECTION 6: PRODUCT PHILOSOPHY</div>
+            <h2>How I Build Products</h2>
+            <p class="subtitle">My approach to creating products that matter</p>
+            
+            <div class="philosophy-grid">
+                <!-- Principle 1 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-number">1</div>
+                    <h3>User-Obsessed Approach</h3>
+                    <p><em>"Great products come from deep user understanding"</em></p>
+                    <ul>
+                        <li>Countless hours in care facilities understanding operators</li>
+                        <li>Direct customer feedback loops</li>
+                        <li>Journey mapping and pain point validation</li>
+                        <li>Build with users, not for users</li>
+                    </ul>
+                </div>
+                
+                <!-- Principle 2 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-number">2</div>
+                    <h3>Data-Driven Decisions</h3>
+                    <p>Define success criteria before building, iterate based on evidence</p>
+                    <ul>
+                        <li>Set clear success metrics upfront</li>
+                        <li>Track what matters, not vanity metrics</li>
+                        <li>A/B test assumptions before scaling</li>
+                        <li>Let data guide, but don't ignore intuition</li>
+                    </ul>
+                </div>
+                
+                <!-- Principle 3 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-number">3</div>
+                    <h3>Cross-Functional Collaboration</h3>
+                    <p>Bridge between engineers, designers, and business stakeholders</p>
+                    <ul>
+                        <li>Foster culture of deep collaboration</li>
+                        <li>Translate between technical and business language</li>
+                        <li>Empower teams with context and ownership</li>
+                        <li>Build alignment through shared objectives</li>
+                    </ul>
+                </div>
+                
+                <!-- Principle 4 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-number">4</div>
+                    <h3>Execution Excellence</h3>
+                    <p>Move fast, take ownership, ship results</p>
+                    <ul>
+                        <li>Sprint planning to delivery ownership</li>
+                        <li>Balance speed with quality</li>
+                        <li>Ship MVPs, learn, iterate quickly</li>
+                        <li>Take calculated risks, fail fast, learn faster</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 7: CONTACT CTA -->
+        <div class="section contact">
+            <div class="section-label" style="color: #333; background: white;">SECTION 7: CONTACT</div>
+            <h2>Let's build something together</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;">Open to product leadership opportunities</p>
+            <div class="contact-links">
+                <a href="#" class="contact-link">LinkedIn</a>
+                <a href="#" class="contact-link">Email</a>
+                <a href="#" class="contact-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
