@@ -600,7 +600,7 @@ Keep animations subtle and professional. Use CSS transforms for performance.
 
 Please add appropriate animations throughout the site.
 ```
-
+### =======  Done until HERE ====== ##### 
 ### Prompt 18: SEO & Meta Tags
 ```
 Add SEO optimization:
