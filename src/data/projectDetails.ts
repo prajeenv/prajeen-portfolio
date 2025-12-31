@@ -1,0 +1,257 @@
+import type { ProjectDetailData } from '../types/project'
+
+// Project detail data - will be populated with actual content in Prompts 12-13
+export const projectDetails: Record<string, ProjectDetailData> = {
+  // Placeholder structure - content to be added
+  panion: {
+    id: 'panion',
+    title: 'PANION',
+    company: 'ABB E-mobility',
+    role: 'Lead Product Manager',
+    period: '2021-2023',
+    type: '0-to-1 AI B2B SaaS',
+    isHeroProject: true,
+    tagline: 'Built an AI-powered fleet management platform from scratch, enabling enterprise customers to optimize EV charging operations.',
+    overview: 'PANION is an AI-powered fleet management platform designed to help enterprise customers optimize their EV charging operations through predictive analytics and smart scheduling.',
+    challenge: 'Enterprise fleet operators struggled to manage EV charging at scale, leading to inefficient energy usage, long wait times, and operational complexity.',
+    responsibilities: [
+      'Defined product vision and roadmap for 0-to-1 launch',
+      'Led cross-functional team of 12 engineers, designers, and data scientists',
+      'Conducted 50+ customer interviews to validate market needs',
+      'Designed AI-powered scheduling algorithm with ML team',
+      'Managed stakeholder communication with C-level executives',
+      'Drove go-to-market strategy and early customer acquisition',
+    ],
+    approach: [
+      {
+        title: 'Discovery & Validation',
+        description: 'Conducted extensive customer research with 50+ fleet operators to understand pain points, validate problem-solution fit, and identify key features.',
+      },
+      {
+        title: 'MVP Definition',
+        description: 'Defined minimum viable product focusing on core scheduling and analytics features, prioritizing based on customer value and technical feasibility.',
+      },
+      {
+        title: 'Iterative Development',
+        description: 'Implemented 2-week sprints with continuous customer feedback loops, shipping incremental improvements and measuring impact.',
+      },
+      {
+        title: 'AI Integration',
+        description: 'Collaborated with data science team to develop predictive models for charging optimization, balancing accuracy with explainability.',
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: 'Build vs. Buy for Scheduling Engine',
+        rationale: 'Existing solutions lacked EV-specific optimization. Custom development would provide competitive differentiation.',
+        outcome: '40% better scheduling efficiency compared to rule-based alternatives.',
+      },
+      {
+        decision: 'API-First Architecture',
+        rationale: 'Enterprise customers needed integration with existing fleet management systems.',
+        outcome: 'Reduced integration time from months to weeks, accelerating sales cycles.',
+      },
+    ],
+    results: [
+      { metric: 'Launch', value: '0-to-1', description: 'From concept to production' },
+      { metric: 'Users', value: '500+', description: 'Fleet operators onboarded' },
+      { metric: 'Revenue', value: '€2M', description: 'First year ARR' },
+      { metric: 'Efficiency', value: '+40%', description: 'Charging optimization' },
+    ],
+    learnings: [
+      'Starting with a narrow customer segment (delivery fleets) helped achieve product-market fit faster than targeting all EV fleets.',
+      'AI features need clear explainability for enterprise adoption - black box recommendations faced resistance from operations teams.',
+      'Integration partnerships with existing fleet management vendors accelerated customer acquisition more than direct sales.',
+    ],
+    nextProject: { id: 'sap-migration', title: 'SAP Cloud Migration' },
+  },
+
+  'sap-migration': {
+    id: 'sap-migration',
+    title: 'SAP Cloud Migration',
+    company: 'SAP Labs',
+    role: 'Senior Product Manager',
+    period: '2015-2020',
+    type: 'Enterprise Scale',
+    tagline: 'Led the migration of legacy on-premise solutions to SAP Cloud Platform, managing a €200M program affecting 12,000+ enterprise customers.',
+    overview: 'A strategic initiative to transition SAP\'s largest enterprise customers from on-premise deployments to the cloud-native SAP Cloud Platform.',
+    challenge: 'Enterprise customers with decades of customizations faced significant barriers to cloud adoption: data migration complexity, business continuity risks, and change management challenges.',
+    responsibilities: [
+      'Owned product strategy for migration tooling and processes',
+      'Managed roadmap for €200M program with 50+ team members',
+      'Coordinated with 12,000+ enterprise customer accounts',
+      'Designed migration assessment and planning frameworks',
+      'Led cross-functional alignment across engineering, sales, and support',
+      'Established success metrics and tracking dashboards',
+    ],
+    approach: [
+      {
+        title: 'Customer Segmentation',
+        description: 'Categorized customers by complexity, customization level, and business criticality to create tailored migration paths.',
+      },
+      {
+        title: 'Migration Toolkit Development',
+        description: 'Built automated assessment and migration tools to reduce manual effort and minimize business disruption.',
+      },
+      {
+        title: 'Phased Rollout',
+        description: 'Implemented staged migration approach starting with less complex deployments to build confidence and refine processes.',
+      },
+      {
+        title: 'Change Management',
+        description: 'Developed comprehensive training and communication programs to support customer teams through the transition.',
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: 'Hybrid Migration Path',
+        rationale: 'Full cloud migration was too risky for mission-critical systems. Hybrid approach allowed gradual transition.',
+        outcome: '95% migration completion rate with zero critical incidents.',
+      },
+      {
+        decision: 'Self-Service Assessment Tool',
+        rationale: 'Manual assessments couldn\'t scale to 12,000+ customers. Automation would accelerate pipeline.',
+        outcome: 'Reduced assessment time from 2 weeks to 2 days.',
+      },
+    ],
+    results: [
+      { metric: 'Program Value', value: '€200M', description: 'Total program budget' },
+      { metric: 'Customers', value: '12,000+', description: 'Accounts migrated' },
+      { metric: 'Success Rate', value: '95%', description: 'Migration completion' },
+      { metric: 'Time Saved', value: '10x', description: 'Assessment acceleration' },
+    ],
+    learnings: [
+      'Enterprise migration is as much about change management as technology - investing in customer communication paid dividends.',
+      'Building internal tools that help support teams directly improves customer satisfaction more than feature additions.',
+      'Data shows that customers who completed structured assessments had 3x higher migration success rates.',
+    ],
+    prevProject: { id: 'panion', title: 'PANION' },
+    nextProject: { id: 'voize', title: 'Voize Nursing App' },
+  },
+
+  voize: {
+    id: 'voize',
+    title: 'Voize Nursing App',
+    company: 'Side Project',
+    role: 'Product Lead',
+    period: '2023-Present',
+    type: 'Voice AI + Healthcare',
+    isSideProject: true,
+    tagline: 'Developing a voice-first documentation app for nurses, reducing administrative burden through AI-powered transcription and smart form filling.',
+    overview: 'A voice-first mobile application that allows nurses to document patient care through natural speech, automatically filling structured forms and reducing time spent on administrative tasks.',
+    challenge: 'Nurses spend up to 40% of their shift on documentation, taking time away from patient care. Existing solutions require manual data entry and don\'t fit clinical workflows.',
+    responsibilities: [
+      'Defined product vision and feature prioritization',
+      'Conducted user research with 20+ nursing professionals',
+      'Designed voice interaction patterns and UI/UX',
+      'Managed development with a small team of 3',
+      'Ran beta testing program with 50+ users',
+      'Iterated on AI accuracy and clinical terminology support',
+    ],
+    approach: [
+      {
+        title: 'User Shadowing',
+        description: 'Spent 40+ hours observing nurses in clinical settings to understand documentation pain points and workflow constraints.',
+      },
+      {
+        title: 'Voice-First Design',
+        description: 'Designed interaction patterns optimized for hands-free operation in busy clinical environments.',
+      },
+      {
+        title: 'AI Model Training',
+        description: 'Fine-tuned speech recognition models on clinical terminology and nursing documentation patterns.',
+      },
+      {
+        title: 'Beta Program',
+        description: 'Launched closed beta with 50 nurses across 3 healthcare facilities to validate accuracy and workflow fit.',
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: 'Focus on Structured Output',
+        rationale: 'Free-form transcription wasn\'t useful - nurses needed data in specific forms and formats.',
+        outcome: '97% form field accuracy, reducing manual corrections.',
+      },
+      {
+        decision: 'Offline-First Architecture',
+        rationale: 'Hospital WiFi is unreliable. App needed to work without connectivity.',
+        outcome: 'Zero workflow disruptions due to connectivity issues.',
+      },
+    ],
+    results: [
+      { metric: 'Time Saved', value: '40%', description: 'Documentation time reduced' },
+      { metric: 'Beta Users', value: '50+', description: 'Active beta testers' },
+      { metric: 'Accuracy', value: '97%', description: 'Form field accuracy' },
+      { metric: 'NPS', value: '72', description: 'User satisfaction score' },
+    ],
+    learnings: [
+      'Healthcare AI requires extreme attention to accuracy - even 95% isn\'t good enough when patient safety is involved.',
+      'Voice interfaces need robust error handling and confirmation flows to build user trust.',
+      'Side projects benefit from tight scope - focusing on one use case (nursing documentation) over general healthcare.',
+    ],
+    prevProject: { id: 'sap-migration', title: 'SAP Cloud Migration' },
+    nextProject: { id: 'dogq', title: 'DogQ AI Testing' },
+  },
+
+  dogq: {
+    id: 'dogq',
+    title: 'DogQ AI Testing',
+    company: 'DogQ',
+    role: 'Head of Product',
+    period: '2024-Present',
+    type: 'AI-Powered QA',
+    tagline: 'Leading product strategy for an AI-driven testing platform that automates QA workflows, achieving #1 Product Hunt launch.',
+    overview: 'DogQ is an AI-powered testing platform that automatically generates, maintains, and executes test cases, dramatically reducing the time and expertise needed for quality assurance.',
+    challenge: 'Software teams struggle with test coverage - manual testing is slow, test automation requires specialized skills, and tests break frequently with code changes.',
+    responsibilities: [
+      'Defining product strategy and competitive positioning',
+      'Leading product launches including #1 Product Hunt debut',
+      'Managing roadmap and feature prioritization',
+      'Driving user activation and retention improvements',
+      'Coordinating with engineering on AI model improvements',
+      'Building partnerships with development tool vendors',
+    ],
+    approach: [
+      {
+        title: 'Market Analysis',
+        description: 'Analyzed competitive landscape and identified key differentiators in AI-first approach to test generation.',
+      },
+      {
+        title: 'Activation Focus',
+        description: 'Redesigned onboarding flow to get users to "aha moment" faster, reducing time-to-first-test from days to minutes.',
+      },
+      {
+        title: 'AI Model Iteration',
+        description: 'Worked with ML team to improve test generation accuracy through user feedback loops and model fine-tuning.',
+      },
+      {
+        title: 'Launch Strategy',
+        description: 'Orchestrated Product Hunt launch with community building, achieving #1 Product of the Day.',
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: 'Focus on No-Code Users First',
+        rationale: 'Traditional automation tools target developers. Biggest opportunity was non-technical QA teams.',
+        outcome: '60% of users are non-developers, expanding total addressable market.',
+      },
+      {
+        decision: 'Self-Healing Tests',
+        rationale: 'Test maintenance is the #1 pain point. AI-powered self-healing would be key differentiator.',
+        outcome: '80% reduction in test maintenance time.',
+      },
+    ],
+    results: [
+      { metric: 'Product Hunt', value: '#1', description: 'Product of the Day' },
+      { metric: 'Activation', value: '+25%', description: 'Improvement in user activation' },
+      { metric: 'Test Coverage', value: '3x', description: 'Average increase for customers' },
+      { metric: 'Time Saved', value: '80%', description: 'Test maintenance reduction' },
+    ],
+    learnings: [
+      'Product Hunt success requires months of preparation - community building, timing, and compelling narrative.',
+      'AI product development requires balancing user expectations with model capabilities - underselling often works better than overpromising.',
+      'Developer tools need exceptional documentation and self-serve capabilities - users expect to evaluate without sales calls.',
+    ],
+    prevProject: { id: 'voize', title: 'Voize Nursing App' },
+  },
+}
