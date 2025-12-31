@@ -21,21 +21,21 @@
 /* Custom component styles */
 @layer components {
   .container-custom {
-    @apply mx-auto max-w-container px-6 lg:px-8;
+    @apply mx-auto max-w-container px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    @apply py-section-sm lg:py-section;
+    @apply py-12 sm:py-16 lg:py-section;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-card bg-primary px-6 py-3 text-white font-medium
-           transition-all duration-default hover:bg-primary-700 hover:shadow-card-hover;
+    @apply inline-flex items-center justify-center rounded-card bg-primary px-5 sm:px-6 py-3 text-white font-medium
+           transition-all duration-default hover:bg-primary-700 hover:shadow-card-hover min-h-[44px];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-card border-2 border-primary bg-transparent px-6 py-3
-           text-primary font-medium transition-all duration-default hover:bg-primary hover:text-white;
+    @apply inline-flex items-center justify-center rounded-card border-2 border-primary bg-transparent px-5 sm:px-6 py-3
+           text-primary font-medium transition-all duration-default hover:bg-primary hover:text-white min-h-[44px];
   }
 
   .card {

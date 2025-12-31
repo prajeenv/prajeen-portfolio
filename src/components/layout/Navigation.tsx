@@ -52,10 +52,10 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - 44px minimum touch target */}
           <button
             type="button"
-            className="md:hidden p-2 text-text-secondary hover:text-primary"
+            className="md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-text-secondary hover:text-primary hover:bg-gray-100 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
@@ -75,13 +75,16 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   to={link.href}
-                  onClick={(e) => handleNavClick(e, link.sectionId)}
-                  className="text-text-secondary hover:text-primary font-medium transition-colors duration-default py-2"
+                  onClick={(e) => {
+                    handleNavClick(e, link.sectionId)
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="text-text-secondary hover:text-primary hover:bg-gray-50 font-medium transition-colors duration-default py-3 px-2 rounded-lg min-h-[44px] flex items-center"
                 >
                   {link.label}
                 </Link>

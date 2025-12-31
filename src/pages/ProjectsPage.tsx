@@ -73,10 +73,10 @@ export default function ProjectsPage() {
             </nav>
 
             <div className="max-w-3xl">
-              <h1 className="text-h1 text-text-primary mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-h1 text-text-primary mb-3 sm:mb-4">
                 Projects & Case Studies
               </h1>
-              <p className="text-body-lg text-text-secondary">
+              <p className="text-base sm:text-body-lg text-text-secondary">
                 A collection of products I've built across my career — from 0-to-1 AI products
                 to enterprise-scale migrations, professional work to passion projects.
               </p>
@@ -89,12 +89,12 @@ export default function ProjectsPage() {
           <div className="container-custom py-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Filter Tabs */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 {filters.map((filter) => (
                   <button
                     key={filter.value}
                     onClick={() => setActiveFilter(filter.value)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors min-h-[44px] ${
                       activeFilter === filter.value
                         ? 'bg-primary text-white'
                         : 'bg-white text-text-secondary hover:bg-gray-100 border border-gray-200'
@@ -106,15 +106,15 @@ export default function ProjectsPage() {
               </div>
 
               {/* Search & Sort */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto">
                 {/* Search */}
-                <div className="relative">
+                <div className="relative flex-1 md:flex-none">
                   <input
                     type="text"
                     placeholder="Search projects..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full md:w-64 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full md:w-64 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[44px]"
                   />
                   <svg
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary"
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortType)}
-                  className="px-3 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="px-3 py-2 text-sm border border-gray-200 rounded-card bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[44px]"
                 >
                   {sortOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -158,16 +158,16 @@ export default function ProjectsPage() {
             </p>
 
             {filteredProjects.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredProjects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
-                <div className="text-4xl mb-4">🔍</div>
-                <h3 className="text-h3 text-text-primary mb-2">No projects found</h3>
-                <p className="text-text-secondary mb-6">
+              <div className="text-center py-12 sm:py-16">
+                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🔍</div>
+                <h3 className="text-lg sm:text-h3 text-text-primary mb-2">No projects found</h3>
+                <p className="text-sm sm:text-base text-text-secondary mb-4 sm:mb-6">
                   Try adjusting your filters or search query.
                 </p>
                 <button
@@ -187,8 +187,8 @@ export default function ProjectsPage() {
         {/* CTA */}
         <section className="bg-dark section-padding">
           <div className="container-custom text-center">
-            <h2 className="text-h2 text-white mb-4">Want to know more?</h2>
-            <p className="text-body-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-2xl lg:text-h2 text-white mb-4">Want to know more?</h2>
+            <p className="text-base sm:text-body-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Each project taught me something valuable. I'd love to share the stories behind these products.
             </p>
             <Link

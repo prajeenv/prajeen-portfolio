@@ -33,22 +33,22 @@ export default function Contact() {
     <div className="bg-dark section-padding">
       <div className="container-custom">
         <div className="text-center">
-          {/* Headline */}
-          <h2 className="text-h2 text-white mb-4">Let's build something together</h2>
-          <p className="text-body-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+          {/* Headline - responsive */}
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 text-white mb-3 sm:mb-4">Let's build something together</h2>
+          <p className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto">
             I'm currently open to new opportunities. Whether you have a question or just want to say hi,
             feel free to reach out!
           </p>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-6">
+          {/* Social Links - responsive: stack on mobile, row on tablet+ */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:gap-6">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-white/10 text-white rounded-card hover:bg-white/20 transition-colors duration-default"
+                className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 min-h-[44px] bg-white/10 text-white rounded-card hover:bg-white/20 transition-colors duration-default"
                 aria-label={link.name}
               >
                 {link.icon}
@@ -58,7 +58,7 @@ export default function Contact() {
           </div>
 
           {/* Copyright */}
-          <p className="mt-16 text-sm text-gray-500">
+          <p className="mt-12 sm:mt-16 text-sm text-gray-500">
             © {new Date().getFullYear()} Prajeen. Built with React & Tailwind CSS.
           </p>
         </div>

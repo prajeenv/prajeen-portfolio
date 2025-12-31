@@ -5,9 +5,9 @@ export default function Capabilities() {
     <div className="bg-neutral-50 section-padding">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-h2 text-text-primary mb-4">Skills & Capabilities</h2>
-          <p className="text-body-lg text-text-secondary max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 text-text-primary mb-3 sm:mb-4">Skills & Capabilities</h2>
+          <p className="text-base sm:text-body-lg text-text-secondary max-w-2xl mx-auto">
             Core competencies developed across 15+ years of building products
           </p>
         </div>
@@ -17,12 +17,12 @@ export default function Capabilities() {
           {skills.map((skill) => (
             <div
               key={skill.id}
-              className="bg-white rounded-card p-6 border border-gray-100 hover:shadow-card transition-shadow duration-default"
+              className="bg-white rounded-card p-4 sm:p-6 border border-gray-100 hover:shadow-card transition-shadow duration-default"
             >
               {/* Icon & Title */}
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl">{skill.icon}</span>
-                <h3 className="text-h3 text-text-primary">{skill.title}</h3>
+              <div className="flex items-center gap-2 sm:gap-3 mb-3">
+                <span className="text-2xl sm:text-3xl">{skill.icon}</span>
+                <h3 className="text-lg sm:text-h3 text-text-primary">{skill.title}</h3>
               </div>
 
               {/* Description */}

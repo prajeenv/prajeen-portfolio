@@ -23,21 +23,21 @@ export default function AboutPage() {
               </nav>
 
               {/* Intro */}
-              <div className="text-center mb-12">
-                <h1 className="text-h1 text-text-primary mb-4">
+              <div className="text-center mb-8 sm:mb-12">
+                <h1 className="text-2xl sm:text-3xl lg:text-h1 text-text-primary mb-3 sm:mb-4">
                   {aboutContent.intro.headline}
                 </h1>
-                <p className="text-xl text-primary font-medium mb-8">
+                <p className="text-lg sm:text-xl text-primary font-medium mb-6 sm:mb-8">
                   {aboutContent.intro.subheadline}
                 </p>
               </div>
 
               {/* Profile area - placeholder for image */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
                 {/* Image placeholder */}
                 <div className="lg:col-span-1">
-                  <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-card flex items-center justify-center">
-                    <span className="text-6xl">👨‍💻</span>
+                  <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-card flex items-center justify-center max-w-[200px] sm:max-w-[250px] lg:max-w-none mx-auto">
+                    <span className="text-5xl sm:text-6xl">👨‍💻</span>
                   </div>
                   <div className="mt-4 text-center">
                     <p className="font-semibold text-text-primary">Prajeen</p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <section className="bg-slate-50 section-padding">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-h2 text-text-primary mb-12 text-center">
+              <h2 className="text-xl sm:text-2xl lg:text-h2 text-text-primary mb-8 sm:mb-12 text-center">
                 Experience Timeline
               </h2>
 
@@ -89,11 +89,11 @@ export default function AboutPage() {
 
                       {/* Content card */}
                       <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} pl-8 md:pl-0`}>
-                        <div className="bg-white rounded-card p-6 shadow-card">
+                        <div className="bg-white rounded-card p-4 sm:p-6 shadow-card">
                           <div className="flex items-start justify-between mb-2">
                             <div>
-                              <h3 className="text-h3 text-text-primary">{exp.role}</h3>
-                              <p className="text-primary font-medium">{exp.company}</p>
+                              <h3 className="text-lg sm:text-h3 text-text-primary">{exp.role}</h3>
+                              <p className="text-sm sm:text-base text-primary font-medium">{exp.company}</p>
                             </div>
                           </div>
                           <p className="text-sm text-text-secondary mb-3">
@@ -129,10 +129,10 @@ export default function AboutPage() {
         <section className="bg-white section-padding">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-h2 text-text-primary mb-4 text-center">
+              <h2 className="text-xl sm:text-2xl lg:text-h2 text-text-primary mb-3 sm:mb-4 text-center">
                 Skills & Competencies
               </h2>
-              <p className="text-body-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+              <p className="text-base sm:text-body-lg text-text-secondary text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
                 Core capabilities developed across 15+ years of building products
               </p>
 
@@ -140,13 +140,13 @@ export default function AboutPage() {
                 {skills.map((skill) => (
                   <div
                     key={skill.id}
-                    className="bg-slate-50 rounded-card p-6 border border-gray-100 hover:shadow-card transition-shadow duration-default"
+                    className="bg-slate-50 rounded-card p-4 sm:p-6 border border-gray-100 hover:shadow-card transition-shadow duration-default"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-3xl">{skill.icon}</span>
-                      <h3 className="font-semibold text-text-primary">{skill.title}</h3>
+                    <div className="flex items-center gap-2 sm:gap-3 mb-3">
+                      <span className="text-2xl sm:text-3xl">{skill.icon}</span>
+                      <h3 className="text-base sm:text-lg font-semibold text-text-primary">{skill.title}</h3>
                     </div>
-                    <p className="text-sm text-text-secondary mb-4">{skill.description}</p>
+                    <p className="text-sm text-text-secondary mb-3 sm:mb-4">{skill.description}</p>
                     <ul className="space-y-1">
                       {skill.items.slice(0, 4).map((item) => (
                         <li key={item} className="flex items-center gap-2 text-sm text-text-secondary">
@@ -166,26 +166,26 @@ export default function AboutPage() {
         <section className="bg-slate-50 section-padding">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-h2 text-text-primary mb-4 text-center">
+              <h2 className="text-xl sm:text-2xl lg:text-h2 text-text-primary mb-3 sm:mb-4 text-center">
                 My Approach
               </h2>
-              <p className="text-body-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+              <p className="text-base sm:text-body-lg text-text-secondary text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
                 Principles that guide how I build products
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {aboutContent.philosophy.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-card p-6 border border-gray-100"
+                    className="bg-white rounded-card p-4 sm:p-6 border border-gray-100"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                         {index + 1}
                       </div>
-                      <h3 className="font-semibold text-text-primary">{item.title}</h3>
+                      <h3 className="text-base sm:text-lg font-semibold text-text-primary">{item.title}</h3>
                     </div>
-                    <p className="text-body text-text-secondary">{item.description}</p>
+                    <p className="text-sm sm:text-body text-text-secondary">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -197,19 +197,19 @@ export default function AboutPage() {
         <section className="bg-primary section-padding">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-h2 text-white mb-12 text-center">
+              <h2 className="text-xl sm:text-2xl lg:text-h2 text-white mb-8 sm:mb-12 text-center">
                 Achievements & Recognition
               </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6">
                 {achievements.map((achievement, index) => (
                   <div
                     key={index}
-                    className="bg-white/10 backdrop-blur rounded-card p-4 text-center"
+                    className="bg-white/10 backdrop-blur rounded-card p-3 sm:p-4 text-center"
                   >
-                    <div className="text-3xl mb-2">{achievement.icon}</div>
-                    <h3 className="font-bold text-white text-lg mb-1">{achievement.title}</h3>
-                    <p className="text-primary-200 text-sm">{achievement.description}</p>
+                    <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">{achievement.icon}</div>
+                    <h3 className="font-bold text-white text-sm sm:text-lg mb-1">{achievement.title}</h3>
+                    <p className="text-primary-200 text-xs sm:text-sm">{achievement.description}</p>
                   </div>
                 ))}
               </div>
@@ -221,10 +221,10 @@ export default function AboutPage() {
         <section className="bg-white section-padding">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-h2 text-text-primary mb-4 text-center">
+              <h2 className="text-xl sm:text-2xl lg:text-h2 text-text-primary mb-3 sm:mb-4 text-center">
                 Tools & Technologies
               </h2>
-              <p className="text-body-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+              <p className="text-base sm:text-body-lg text-text-secondary text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
                 The toolkit I use to build and ship products
               </p>
 
@@ -232,9 +232,9 @@ export default function AboutPage() {
                 {tools.map((toolCategory) => (
                   <div
                     key={toolCategory.category}
-                    className="bg-slate-50 rounded-card p-6 border border-gray-100"
+                    className="bg-slate-50 rounded-card p-4 sm:p-6 border border-gray-100"
                   >
-                    <h3 className="font-semibold text-text-primary mb-4">
+                    <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-3 sm:mb-4">
                       {toolCategory.category}
                     </h3>
                     <div className="flex flex-wrap gap-2">
@@ -257,11 +257,11 @@ export default function AboutPage() {
         {/* CTA */}
         <section className="bg-dark section-padding">
           <div className="container-custom text-center">
-            <h2 className="text-h2 text-white mb-4">Want to work together?</h2>
-            <p className="text-body-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-2xl lg:text-h2 text-white mb-4">Want to work together?</h2>
+            <p className="text-base sm:text-body-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto">
               I'm currently open to new opportunities. Let's discuss how I can help with your next product challenge.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Link
                 to="/#contact"
                 className="btn-primary bg-white text-primary hover:bg-gray-100"
