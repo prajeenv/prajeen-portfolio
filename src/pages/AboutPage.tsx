@@ -85,7 +85,7 @@ export default function AboutPage() {
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center">
                       <span className="text-6xl">👨‍💻</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">Prajeen</h3>
+                    <h3 className="text-xl font-semibold text-foreground mb-1">Prajeen Vijayan</h3>
                     <p className="text-muted-foreground mb-3 flex items-center justify-center gap-1">
                       <MapPin className="w-4 h-4" />
                       Berlin, Germany

@@ -53,7 +53,7 @@ export default function Navigation({ onScrollToSection }: NavigationProps) {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Prajeen
+                Prajeen Vijayan
               </span>
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transition-all duration-300 group-hover:w-full" />
             </div>
