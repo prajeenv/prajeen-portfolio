@@ -334,17 +334,19 @@ export default function AboutPage() {
               I'm currently open to new opportunities. Let's discuss how I can help with your next product challenge.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="gradient" size="lg" asChild className="group">
-                <Link to="/#contact">
-                  Get in Touch
-                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="border-white/20 text-white hover:bg-white/10">
-                <Link to="/projects">
-                  View My Work
-                </Link>
-              </Button>
+              <Link
+                to="/#contact"
+                className="group inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-medium bg-gradient-to-r from-primary to-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
+              >
+                Get in Touch
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                to="/projects"
+                className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-medium border-2 border-white/30 text-white hover:bg-white/10 transition-all duration-200"
+              >
+                View My Work
+              </Link>
             </div>
           </div>
         </section>
