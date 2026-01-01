@@ -98,7 +98,7 @@ export default function Hero({ onViewWork, onContact }: HeroProps) {
               size="xl"
               className="w-full sm:w-auto"
             >
-              Contact Me
+              Get in Touch
             </Button>
           </div>
         </div>
