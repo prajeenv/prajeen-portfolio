@@ -336,10 +336,9 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/#contact"
-                className="group inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-medium bg-gradient-to-r from-primary to-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
+                className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-medium bg-gradient-to-r from-primary to-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
               >
                 Get in Touch
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/projects"
