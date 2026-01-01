@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { Search, FolderOpen, Briefcase, Rocket, ArrowRight } from 'lucide-react'
+import { Search, FolderOpen, Briefcase, Rocket } from 'lucide-react'
 import Navigation from '../components/layout/Navigation'
 import ProjectCard from '../components/home/ProjectCard'
 import { Button } from '@/components/ui/button'
@@ -216,10 +216,9 @@ export default function ProjectsPage() {
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               Each project taught me something valuable. I'd love to share the stories behind these products.
             </p>
-            <Button variant="gradient" size="lg" asChild className="group">
+            <Button variant="gradient" size="lg" asChild>
               <Link to="/#contact">
-                Let's Talk
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                Get in Touch
               </Link>
             </Button>
           </div>
