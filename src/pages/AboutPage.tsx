@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
 import {
   User, MapPin, Briefcase, Award, Wrench, Heart,
-  Check, ArrowRight, Calendar, Building2
+  Check, Calendar, Building2
 } from 'lucide-react'
 import Navigation from '../components/layout/Navigation'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { experiences, achievements, tools, aboutContent } from '../data/about'
 import { skills } from '../data/skills'
