@@ -146,6 +146,7 @@ export const projectDetails: Record<string, ProjectDetailData> = {
     period: '2023-Present',
     type: 'Voice AI + Healthcare',
     isSideProject: true,
+    status: 'prototype',
     tagline: 'Developing a voice-first documentation app for nurses, reducing administrative burden through AI-powered transcription and smart form filling.',
     overview: 'A voice-first mobile application that allows nurses to document patient care through natural speech, automatically filling structured forms and reducing time spent on administrative tasks.',
     challenge: 'Nurses spend up to 40% of their shift on documentation, taking time away from patient care. Existing solutions require manual data entry and don\'t fit clinical workflows.',
@@ -209,6 +210,7 @@ export const projectDetails: Record<string, ProjectDetailData> = {
     role: 'Head of Product',
     period: '2024-Present',
     type: 'AI-Powered QA',
+    externalUrl: 'https://www.dogq.io',
     tagline: 'Leading product strategy for an AI-driven testing platform that automates QA workflows, achieving #1 Product Hunt launch.',
     overview: 'DogQ is an AI-powered testing platform that automatically generates, maintains, and executes test cases, dramatically reducing the time and expertise needed for quality assurance.',
     challenge: 'Software teams struggle with test coverage - manual testing is slow, test automation requires specialized skills, and tests break frequently with code changes.',
@@ -273,6 +275,8 @@ export const projectDetails: Record<string, ProjectDetailData> = {
     period: 'Jan 2026 - Present',
     type: 'AI-Powered SaaS',
     isSideProject: true,
+    status: 'live',
+    externalUrl: 'https://review-flow-kappa.vercel.app',
 
     tagline: 'Designing and building an AI-powered review response platform from scratch — applying product thinking to solve a real SMB pain point with dual-AI architecture, credit-based monetization, and a phased roadmap built for learning.',
 

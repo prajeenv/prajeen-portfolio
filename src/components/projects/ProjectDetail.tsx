@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ExternalLink, Circle } from 'lucide-react'
 import type { ProjectDetailData } from '../../types/project'
 import Navigation from '../layout/Navigation'
 
@@ -15,6 +16,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
     type,
     isHeroProject,
     isSideProject,
+    status,
+    externalUrl,
     heroImage,
     tagline,
     overview,
@@ -81,6 +84,18 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 <span className="text-sm text-text-secondary bg-slate-100 px-3 py-1 rounded-full">
                   {type}
                 </span>
+                {status === 'live' && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 text-sm font-semibold bg-emerald-500 text-white rounded-full">
+                    <Circle className="w-2 h-2 fill-current" />
+                    Live
+                  </span>
+                )}
+                {status === 'prototype' && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 text-sm text-text-secondary border border-gray-200 rounded-full">
+                    <Circle className="w-2 h-2 fill-current" />
+                    Prototype
+                  </span>
+                )}
               </div>
 
               {/* Title & Meta */}
@@ -94,6 +109,19 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <p className="text-lg sm:text-xl text-text-secondary leading-relaxed">
                 {tagline}
               </p>
+
+              {/* External Link */}
+              {externalUrl && (
+                <a
+                  href={externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  Visit Live Product
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
             </div>
 
             {/* Hero Image */}

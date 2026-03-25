@@ -43,6 +43,7 @@ export const projects: Project[] = [
     period: '2023-Present',
     description: 'Developing a voice-first documentation app for nurses, reducing administrative burden through AI-powered transcription and smart form filling.',
     isSideProject: true,
+    status: 'prototype',
     link: '/projects/voize',
     metrics: [
       { label: 'Time Saved', value: '40%' },
@@ -59,6 +60,7 @@ export const projects: Project[] = [
     type: 'AI-Powered QA',
     period: '2024-Present',
     description: 'Leading product strategy for an AI-driven testing platform that automates QA workflows, achieving #1 Product Hunt launch.',
+    externalUrl: 'https://www.dogq.io',
     link: '/projects/dogq',
     metrics: [
       { label: 'Product Hunt', value: '#1' },
@@ -76,6 +78,8 @@ export const projects: Project[] = [
     period: 'Jan 2026 - Present',
     description: 'Built an AI-powered review response platform for SMBs, using dual-AI architecture (Claude for generation, DeepSeek for sentiment) with credit-based pricing to deliver 10x faster responses across 40+ languages.',
     isSideProject: true,
+    status: 'live',
+    externalUrl: 'https://review-flow-kappa.vercel.app',
     link: '/projects/reviewflow',
     metrics: [
       { label: 'Response Time', value: '10x' },

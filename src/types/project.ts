@@ -14,6 +14,8 @@ export interface Project {
   image?: string
   isHeroProject?: boolean
   isSideProject?: boolean
+  status?: 'live' | 'prototype'
+  externalUrl?: string
   link: string
   metrics?: ProjectMetric[]
   tags?: string[]
@@ -33,6 +35,8 @@ export interface ProjectDetailData {
   type: string
   isHeroProject?: boolean
   isSideProject?: boolean
+  status?: 'live' | 'prototype'
+  externalUrl?: string
 
   // Hero section
   heroImage?: string

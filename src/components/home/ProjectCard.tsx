@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Star, Rocket, TrendingUp } from 'lucide-react'
+import { ArrowRight, Star, Rocket, TrendingUp, ExternalLink, Circle } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
@@ -17,6 +17,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     description,
     isHeroProject,
     isSideProject,
+    status,
+    externalUrl,
     link,
     metrics,
   } = project
@@ -59,6 +61,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Badge variant="secondary" className="font-normal">
               {type}
             </Badge>
+            {status === 'live' && (
+              <Badge variant="success" className="gap-1">
+                <Circle className="w-2 h-2 fill-current" />
+                Live
+              </Badge>
+            )}
+            {status === 'prototype' && (
+              <Badge variant="outline" className="gap-1 text-muted-foreground">
+                <Circle className="w-2 h-2 fill-current" />
+                Prototype
+              </Badge>
+            )}
           </div>
 
           {/* Title & Company */}
@@ -89,10 +103,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
           )}
 
-          {/* Arrow indicator */}
-          <div className="flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
-            View Case Study
-            <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+          {/* Action links */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
+              View Case Study
+              <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+            </div>
+            {externalUrl && (
+              <a
+                href={externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Visit Site
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
         </CardContent>
       </Card>
