@@ -141,12 +141,12 @@ export const tools: Tool[] = [
 
 export const aboutContent = {
   intro: {
-    headline: 'Product Leader with a Developer\'s Heart',
-    subheadline: '15+ years turning complex problems into products people love',
+    headline: 'AI Product Leader',
+    subheadline: '15+ years shipping products from 0-to-1 at startups to €200M programs at enterprise scale',
     paragraphs: [
-      'I\'m a Product Manager who started as a software developer. That technical foundation became my superpower — I speak fluent developer while translating business needs into solutions that actually ship.',
-      'Over my career, I\'ve worked across the entire spectrum: from building 0-to-1 AI products at startups to managing €200M enterprise programs at SAP. What connects it all is my obsession with understanding users deeply and building products that create measurable impact.',
-      'Today, I\'m particularly passionate about AI-powered products. Having shipped 4 AI products, I believe deeply in building AI that augments human capabilities rather than replacing them.',
+      'Over my career, I\'ve shipped products across the full spectrum — from building 0-to-1 AI products at startups to managing €200M enterprise cloud migrations at SAP. What connects it all is a relentless focus on understanding users deeply and building products that create measurable impact.',
+      'Today, I specialize in AI-powered products. Having shipped 4 AI products, I bring hands-on expertise in AI architecture decisions, cost-aware model selection, and designing pricing models that align user value with API economics.',
+      'I don\'t just define product strategy — I can validate and ship end-to-end. My latest side project, ReviewFlow, is a live AI-powered SaaS platform I took from problem identification through production deployment.',
     ],
   },
   philosophy: [
@@ -164,7 +164,7 @@ export const aboutContent = {
     },
     {
       title: 'Technical Depth Matters',
-      description: 'As a former developer, I can dive into architecture discussions, review technical specs, and understand trade-offs. This credibility with engineering teams accelerates delivery.',
+      description: 'With a strong technical foundation, I can dive into architecture discussions, review technical specs, and understand trade-offs. This credibility with engineering teams accelerates delivery.',
     },
   ],
 }

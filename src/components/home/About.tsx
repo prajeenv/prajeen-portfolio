@@ -6,20 +6,20 @@ import { cn } from '@/lib/utils'
 const highlightCards = [
   {
     icon: Target,
-    title: 'Unique Value',
-    description: 'Developer-turned-PM with deep technical understanding and business acumen',
+    title: 'AI Product Expertise',
+    description: '4 AI products shipped — from 0-to-1 builds to enterprise-scale platforms',
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Building2,
-    title: 'Domain Experience',
-    description: 'Enterprise SaaS, E-mobility, AI/ML, Developer Tools',
+    title: 'Domain Breadth',
+    description: 'Enterprise SaaS, E-mobility, AI/ML, Developer Tools, Review Management',
     gradient: 'from-violet-500 to-purple-500',
   },
   {
     icon: TrendingUp,
     title: 'Career Trajectory',
-    description: 'SAP Labs → ABB E-mobility → DogQ (Startup)',
+    description: 'SAP Labs → ABB E-mobility → DogQ → ReviewFlow',
     gradient: 'from-orange-500 to-amber-500',
   },
   {
@@ -43,10 +43,10 @@ export default function About() {
             "text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4",
             "tracking-tight"
           )}>
-            Developer-Turned Product Leader
+            AI Product Leader
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            15+ years of building products that matter
+            15+ years building products across startups and enterprise
           </p>
         </AnimatedSection>
 
@@ -56,25 +56,26 @@ export default function About() {
           <AnimatedSection className="lg:col-span-3 space-y-6">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I started my career as a software developer, building systems from the ground up.
-                That technical foundation became my superpower when I transitioned into product management
-                — <span className="text-foreground font-medium">I speak fluent developer</span> while translating business needs into technical solutions.
+                Over 15+ years, I've shipped products across the full spectrum — from <span className="text-foreground font-medium">0-to-1 AI products</span> at
+                startups to <span className="text-foreground font-medium">€200M enterprise migrations</span> at SAP. Today, I lead product strategy at DogQ, an
+                AI-powered testing platform that launched to <span className="text-foreground font-medium">#1 on Product Hunt</span>.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Over 15+ years, I've led products across the spectrum: from <span className="text-foreground font-medium">0-to-1 AI products</span> at
-                startups to <span className="text-foreground font-medium">€200M enterprise migrations</span> at SAP. What drives me is the challenge of
-                turning complex problems into elegant solutions that users love and businesses can measure.
+                What sets me apart is hands-on AI product expertise. I've shipped <span className="text-foreground font-medium">4 AI products</span>, making
+                architecture decisions that directly impact unit economics — like choosing dual-AI strategies to optimize cost
+                and quality independently, or designing credit-based pricing models that align user value with API costs.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Today, I'm particularly passionate about AI-powered products — I've shipped <span className="text-foreground font-medium">4 AI products</span>{' '}
-                and believe deeply in building AI that augments human capabilities rather than replacing them.
+                I don't just spec products — I can validate and ship them end-to-end. My latest side project,{' '}
+                <span className="text-foreground font-medium">ReviewFlow</span>, is a live AI-powered SaaS platform I built from
+                problem identification through deployment, applying the same product rigor I bring to team environments.
               </p>
             </div>
 
             {/* Visual separator with quote */}
             <blockquote className="relative pl-6 border-l-4 border-primary">
               <p className="text-xl italic text-foreground">
-                "Great products come from understanding both the code and the customer."
+                "The best AI products come from PMs who understand both the model's capabilities and the user's problem."
               </p>
             </blockquote>
           </AnimatedSection>
