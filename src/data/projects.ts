@@ -67,4 +67,21 @@ export const projects: Project[] = [
     ],
     tags: ['AI', 'DevTools', 'QA Automation', 'Startup'],
   },
+  {
+    id: 'reviewflow',
+    title: 'ReviewFlow',
+    company: 'Side Project',
+    role: 'Founder & AI PM',
+    type: 'AI-Powered SaaS',
+    period: 'Jan 2026 - Present',
+    description: 'Built an AI-powered review response platform for SMBs, using dual-AI architecture (Claude for generation, DeepSeek for sentiment) with credit-based pricing to deliver 10x faster responses across 40+ languages.',
+    isSideProject: true,
+    link: '/projects/reviewflow',
+    metrics: [
+      { label: 'Response Time', value: '10x' },
+      { label: 'Languages', value: '40+' },
+      { label: 'Hours Saved/Week', value: '10+' },
+    ],
+    tags: ['AI', 'SaaS', 'NLP', 'Side Project'],
+  },
 ]

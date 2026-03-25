@@ -262,5 +262,100 @@ export const projectDetails: Record<string, ProjectDetailData> = {
       'Developer tools need exceptional documentation and self-serve capabilities - users expect to evaluate without sales calls.',
     ],
     prevProject: { id: 'voize', title: 'Voize Nursing App' },
+    nextProject: { id: 'reviewflow', title: 'ReviewFlow' },
+  },
+
+  reviewflow: {
+    id: 'reviewflow',
+    title: 'ReviewFlow',
+    company: 'Side Project',
+    role: 'Founder & AI PM',
+    period: 'Jan 2026 - Present',
+    type: 'AI-Powered SaaS',
+    isSideProject: true,
+
+    tagline: 'Designing and building an AI-powered review response platform from scratch — applying product thinking to solve a real SMB pain point with dual-AI architecture, credit-based monetization, and a phased roadmap built for learning.',
+
+    overview: 'ReviewFlow is an AI-powered platform that helps small and mid-size businesses manage and respond to customer reviews at scale. Rather than spending 5-20 hours per week crafting individual responses, business owners generate brand-aligned, context-aware replies in seconds using Claude AI, with sentiment analysis powered by DeepSeek. The platform supports 40+ languages with native-quality generation and uses a credit-based pricing model designed for predictable unit economics. I built this end-to-end — from problem identification and market research through architecture decisions, implementation, and iterative refinement — treating it as a full product management exercise with real users and real constraints.',
+
+    challenge: 'Small business owners are caught in a painful bind: customer reviews directly impact revenue and reputation, but responding thoughtfully to each one is a manual, time-intensive process. Existing solutions are either too expensive for SMBs, generate generic responses that damage brand voice, or require technical integration work that small teams cannot support. The challenge was to build an AI product that delivers enterprise-quality response generation at SMB-friendly pricing, while navigating real cost constraints around AI model usage — all as a solo PM shipping end-to-end.',
+
+    responsibilities: [
+      'Identified and validated the market opportunity through competitive analysis and user research',
+      'Defined product strategy including a 6-phase roadmap from MVP to platform maturity',
+      'Designed the dual-AI architecture: Claude for generation, DeepSeek for sentiment analysis',
+      'Built the credit-based pricing model with cost modeling across three tiers',
+      'Made scope and prioritization decisions to ship a focused MVP within 3 months',
+      'Implemented the full-stack application: Next.js, Prisma, PostgreSQL, Supabase, Vercel',
+      'Documented trade-offs and decisions in DECISIONS.md for transparency and future reference',
+      'Designed UX flows optimized for speed-to-value: review input to generated response in under 10 seconds',
+    ],
+
+    approach: [
+      {
+        title: 'Problem Validation & Market Sizing',
+        description: 'Researched the review management space, identified that SMBs spend 5-20 hours/week on review responses, and confirmed willingness to pay through competitive pricing analysis. Mapped the competitive landscape to find the gap: no tool offered affordable AI generation with native multilingual quality.',
+      },
+      {
+        title: 'Phased Roadmap Design',
+        description: 'Designed a 6-phase roadmap (Foundation → AI Core → Business Model → User Experience → Integrations → Scale) that sequences risk: validate the AI quality first, then layer on monetization and integrations. Each phase has clear entry/exit criteria and learning goals.',
+      },
+      {
+        title: 'Architecture for Cost Control',
+        description: 'Chose a dual-AI strategy early: Claude Sonnet 4 for high-quality response generation (the value driver) and DeepSeek for sentiment analysis (10x cheaper for a classification task). This keeps the per-request cost viable at SMB price points while maintaining output quality where it matters most.',
+      },
+      {
+        title: 'MVP Scope Discipline',
+        description: 'Deliberately chose manual review input for MVP over API integrations with Google/Yelp. This reduced scope by months, got the product to users faster, and validated the core value proposition (AI response quality) without coupling it to third-party API complexity. The roadmap sequences CSV import next, then direct integrations.',
+      },
+      {
+        title: 'Iterative Build with Documentation',
+        description: 'Adopted a risk-driven documentation strategy: documented trade-off decisions in DECISIONS.md as they happened, maintained a living roadmap, and tracked progress against phase milestones. This created a transparent artifact of product thinking — useful both as a PM portfolio piece and as actual project governance.',
+      },
+    ],
+
+    keyDecisions: [
+      {
+        decision: 'Credit-Based Pricing Over Per-Review or Subscription-Only',
+        rationale: 'Per-review pricing creates anxiety about usage and discourages exploration. Flat subscription with unlimited usage makes cost unpredictable with AI API expenses. Credits provide a transparent value exchange: users understand what they get, costs are predictable for both sides, and upsell is natural as usage grows.',
+        outcome: 'Pricing structure supports positive unit economics from the Starter tier onward, with clear upgrade triggers as businesses grow their review volume.',
+      },
+      {
+        decision: 'Dual-AI Strategy: Claude for Generation, DeepSeek for Sentiment',
+        rationale: 'Response generation is the core value — it needs to be excellent. Sentiment analysis is a classification task where a cheaper model performs adequately. Running both tasks on Claude would make per-request costs 10x higher for sentiment, destroying unit economics at SMB price points.',
+        outcome: 'Achieved high-quality response generation while keeping per-request cost viable. Sentiment analysis runs at roughly $0.001/request vs $0.01+ if using Claude — a 10x cost reduction on a high-frequency operation.',
+      },
+      {
+        decision: 'Manual Input First, CSV Second, Integrations Third',
+        rationale: 'The riskiest assumption is whether the AI-generated responses are good enough. Direct platform integrations add months of complexity and ongoing maintenance. Manual input isolates the core hypothesis: does the AI generate responses that business owners actually want to send?',
+        outcome: 'Shipped MVP in under 3 months. Early user feedback confirmed response quality is the value driver, validating the sequencing decision.',
+      },
+      {
+        decision: 'Native Language Generation Over Post-Translation',
+        rationale: 'Translating an English response into another language loses nuance, cultural context, and natural phrasing — which matters enormously for customer-facing communication. Claude generates natively in 40+ languages, producing responses that read as written by a native speaker.',
+        outcome: 'Multilingual support became a genuine differentiator rather than a checkbox feature. Responses in non-English languages maintain brand voice and cultural appropriateness.',
+      },
+      {
+        decision: 'Risk-Driven Documentation Over Comprehensive Docs',
+        rationale: 'As a solo builder, writing full specifications for every feature is waste. Instead, documented only the decisions with meaningful trade-offs in DECISIONS.md, maintained a living roadmap, and kept progress tracking lightweight.',
+        outcome: 'DECISIONS.md became both a governance tool and a portfolio artifact — demonstrating structured product thinking to anyone reviewing the project.',
+      },
+    ],
+
+    results: [
+      { metric: 'Response Speed', value: '10x', description: 'Faster than manual response writing' },
+      { metric: 'Languages', value: '40+', description: 'Native-quality generation' },
+      { metric: 'MVP Timeline', value: '<3mo', description: 'From concept to deployed product' },
+      { metric: 'Time Saved', value: '10+ hrs', description: 'Per week for active users' },
+    ],
+
+    learnings: [
+      'AI product management requires a fundamentally different cost model than traditional SaaS. Every API call has a marginal cost, which means pricing, usage patterns, and model selection are product decisions — not just engineering choices. The dual-AI strategy was a product decision disguised as a technical one.',
+      'MVP scope discipline is harder when you are both the PM and the engineer. The temptation to build "just one more feature" is stronger when the cost is your own time rather than a team\'s velocity. Committing to the manual-input-first approach required deliberately choosing to ship something I knew was incomplete.',
+      'Credit-based pricing solves the AI SaaS monetization problem better than subscriptions alone. It aligns costs with value, gives users control, and creates a natural expansion path. The key insight was modeling unit economics per credit, not per user.',
+      'Documenting decisions as they happen — not retroactively — produces better artifacts and better decisions. The act of writing the rationale in DECISIONS.md often exposed weak reasoning before it became committed code.',
+    ],
+
+    prevProject: { id: 'dogq', title: 'DogQ AI Testing' },
   },
 }
